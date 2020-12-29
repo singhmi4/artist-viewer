@@ -23,7 +23,7 @@ const MusixMatchProvider = ({ children }) => {
       .catch(err => console.log(err))
   }, []);
   return (
-    <context.Provider value={{ artistList, favAlbums, setFavAlbums }}>
+    <context.Provider value={{ artistList, setArtistList, favAlbums, setFavAlbums }}>
       {children}
     </context.Provider>
   )
