@@ -9,7 +9,6 @@ import {
   CardContent,
   CardActions,
   IconButton,
-  Button,
   Typography
 } from '@material-ui/core'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -27,7 +26,6 @@ const Album = (props) => {
   const { album } = props;
   const { favAlbums, setFavAlbums } = useContext(MusixMatchProvider.context)
   const [fav, setFav] = useState(false)
-  console.log(album)
   
   // Checks if Album is in Fav Albums List to Display Appropriate Heart Icon
   useEffect(() => {
