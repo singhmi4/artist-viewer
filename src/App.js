@@ -3,6 +3,9 @@ import { BrowserRouter as Router,
   Route,
   Switch } from 'react-router-dom'
 
+// Context
+import MusixMatchProvider from './context/context'
+
 // Components
 import Navbar from './components/layout/Navbar'
 
@@ -15,16 +18,18 @@ import { CssBaseline, Container } from '@material-ui/core'
 
 function App() {
   return (
-    <Router>
-      <CssBaseline />
-      <Navbar />
-      <Container maxWidth="lg">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/favourites" component={Favourites} />
-        </Switch>
-      </Container>
-    </Router>
+    <MusixMatchProvider>
+        <Router>
+        <CssBaseline />
+        <Navbar />
+        <Container maxWidth="lg">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/favourites" component={Favourites} />
+          </Switch>
+        </Container>
+      </Router>
+    </MusixMatchProvider>
   );
 }
 
