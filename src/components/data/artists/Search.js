@@ -1,5 +1,8 @@
 import React, { useContext } from 'react'
 
+// Countries List
+import { countries } from '../countries/countries'
+
 // Axios Import
 import axios from 'axios'
 
@@ -61,9 +64,11 @@ const Search = () => {
             }}
           >
             <option aria-label="None" value="" />
-            <option value="CA">Canada</option>
-            <option value="US">United States</option>
-            <option value="GB">United Kingdom</option>
+            {
+              countries.map((country, i) => (
+                <option key={i} value={country["alpha-2"]}>{country.name}</option>
+              ))
+            }
           </NativeSelect>
         </FormControl>
       </CardContent>
