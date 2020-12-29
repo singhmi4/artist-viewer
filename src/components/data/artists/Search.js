@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
 // Axios Import
 import axios from 'axios'
@@ -30,8 +30,19 @@ const useStyles = makeStyles((theme) => ({
 
 const Search = () => {
   const classes = useStyles()
-  const [country, setCountry] = useState("")
-  const { setArtistList } = useContext(MusixMatchProvider.context)
+  const { countryCode, setCountryCode, setArtistList } = useContext(MusixMatchProvider.context)
+
+  const handleCountryCodeChange = (event) => {
+    setCountryCode(event.target.value)
+    axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=10&country=${countryCode}&apikey=${
+      process.env.REACT_APP_MM_KEY
+    }`)
+      .then(res => {
+        setArtistList(res.data.message.body.artist_list)
+      })
+      .catch(err => console.log(err))
+  }
+
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -42,8 +53,8 @@ const Search = () => {
         <FormControl className={classes.formControl} margin="dense" fullWidth>
           <InputLabel htmlFor="country-native-helper">Country</InputLabel>
           <NativeSelect
-            // value={state.age}
-            // onChange={handleChange}
+            value={countryCode}
+            onChange={handleCountryCodeChange}
             inputProps={{
               name: 'country',
               id: 'country-native-helper',
@@ -51,7 +62,7 @@ const Search = () => {
           >
             <option aria-label="None" value="" />
             <option value="CA">Canada</option>
-            <option value="UK">United States</option>
+            <option value="US">United States</option>
             <option value="GB">United Kingdom</option>
           </NativeSelect>
         </FormControl>

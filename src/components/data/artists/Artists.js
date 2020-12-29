@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Artists = () => {
   const classes = useStyles();
-  const { artistList } = useContext(MusixMatchProvider.context);
+  const { countryCode, artistList } = useContext(MusixMatchProvider.context);
 
   return (
     <div className={classes.root}>
@@ -32,7 +32,7 @@ const Artists = () => {
             </Grid>
         </Grid>
         :  <> 
-            <Typography variant="h5" align="center">Top 10 Artists in Canada</Typography>
+            <Typography variant="h5" align="center">Top 10 Artists in {countryCode}</Typography>
             <Grid container spacing={4} className={classes.root}>
               
                 {artistList.map(artist => (
