@@ -5,6 +5,7 @@ import MusixMatchProvider from '../../context/context'
 
 // Components
 import Artist from './Artist'
+import Spinner from '../layout/Spinner'
 
 // Material UI Components
 import { Typography, Grid } from '@material-ui/core'
@@ -27,7 +28,7 @@ const Artists = () => {
         artistList === undefined || artistList.length === 0 
         ? <Grid container>
             <Grid item xs={12} >
-              <Typography>Loading Artists...</Typography>
+              <Spinner />
             </Grid>
         </Grid>
         :  <> 
