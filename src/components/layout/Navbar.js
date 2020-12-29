@@ -4,12 +4,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Material UI Components
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { 
   AppBar,
   Toolbar,
   Typography,
-  IconButton
+  IconButton,
+  Button,
+  useMediaQuery
 } from '@material-ui/core'
 import AlbumIcon from '@material-ui/icons/Album';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -25,10 +27,17 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  fav: {
+    fontSize: "18px",
+    marginRight: theme.spacing(1)
+  }
 }));
 
 const Navbar = () => {
-  const classes = useStyles();
+  const classes = useStyles()
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"))
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -52,7 +61,10 @@ const Navbar = () => {
                 color="inherit"
                 component={Link}
                 to="/favourites"
-              >
+              > {!isMobile
+                  &&
+                  <span className={classes.fav}>Favourites</span>
+                }
                 <FavoriteIcon />
               </IconButton>
             </div>

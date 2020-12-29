@@ -14,11 +14,15 @@ import Home from './pages/Home'
 import Albums from './pages/Albums'
 import Favourites from './pages/Favourites'
 
+// Theme
+import { theme } from './themes/theme'
+
 // Material UI Components
-import { CssBaseline, Container } from '@material-ui/core'
+import { MuiThemeProvider, CssBaseline, Container } from '@material-ui/core'
 
 function App() {
   return (
+  <MuiThemeProvider theme={theme}>
     <MusixMatchProvider>
         <Router>
         <CssBaseline />
@@ -32,6 +36,7 @@ function App() {
         </Container>
       </Router>
     </MusixMatchProvider>
+  </MuiThemeProvider>
   );
 }
 

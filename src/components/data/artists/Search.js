@@ -37,7 +37,7 @@ const Search = () => {
 
   const handleCountryCodeChange = (event) => {
     setCountryCode(event.target.value)
-    axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=10&country=${countryCode}&apikey=${
+    axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=10&country=${event.target.value}&apikey=${
       process.env.REACT_APP_MM_KEY
     }`)
       .then(res => {
