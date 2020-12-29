@@ -35,7 +35,7 @@ const FavAlbums = () => {
         ? <Grid container>
             <Grid item xs={12} justify="center" >
               <Typography variant="h5" align="center">You haven't favourited any albums.</Typography>
-              <Button component={Link} to="/" variant="contained" color="secondary" fullWidth><ChevronLeftIcon /> Go Back</Button>  
+              <Button className={classes.goback} component={Link} to="/" variant="contained" color="secondary" fullWidth><ChevronLeftIcon /> Go Back</Button>  
             </Grid>
         </Grid>
         :  <> 
