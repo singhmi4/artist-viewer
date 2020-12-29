@@ -10,6 +10,8 @@ const MusixMatchProvider = ({ children }) => {
 
   const [artistList, setArtistList] = useState([])
 
+  const [favAlbums, setFavAlbums] = useState([])
+
   // Initial Load with Top 10 Artists from Canada
   useEffect(() => {
     axios.get(`https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=10&country=ca&apikey=${
@@ -21,7 +23,7 @@ const MusixMatchProvider = ({ children }) => {
       .catch(err => console.log(err))
   }, []);
   return (
-    <context.Provider value={{ artistList }}>
+    <context.Provider value={{ artistList, favAlbums, setFavAlbums }}>
       {children}
     </context.Provider>
   )
