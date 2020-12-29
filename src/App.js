@@ -8,6 +8,7 @@ import Navbar from './components/layout/Navbar'
 
 // Pages
 import Home from './pages/Home'
+import Favourites from './pages/Favourites'
 
 // Material UI Components
 import { CssBaseline, Container } from '@material-ui/core'
@@ -19,7 +20,8 @@ function App() {
       <Navbar />
       <Container maxWidth="lg">
         <Switch>
-          <Home exact path="/" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/favourites" component={Favourites} />
         </Switch>
       </Container>
     </Router>
