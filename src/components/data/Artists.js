@@ -36,8 +36,8 @@ const Artists = () => {
             <Grid container spacing={4} className={classes.root}>
               
                 {artistList.map(artist => (
-                  <Grid item xs={12} sm={6}>
-                    <Artist key={artist.artist.artist_id} artist={artist.artist} />
+                  <Grid key={artist.artist.artist_id} item xs={12} sm={6}>
+                    <Artist artist={artist.artist} />
                   </Grid>
                 ))}
             </Grid>
