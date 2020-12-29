@@ -11,6 +11,7 @@ import Navbar from './components/layout/Navbar'
 
 // Pages
 import Home from './pages/Home'
+import Albums from './pages/Albums'
 import Favourites from './pages/Favourites'
 
 // Material UI Components
@@ -26,6 +27,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/favourites" component={Favourites} />
+            <Route exact path="/albums/:artist_id" component={Albums} />
           </Switch>
         </Container>
       </Router>

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 
 // Context
-import MusixMatchProvider from '../../context/context'
+import MusixMatchProvider from '../../../context/context'
 
 // Components
 import Artist from './Artist'
-import Spinner from '../layout/Spinner'
+import Spinner from '../../layout/Spinner'
 
 // Material UI Components
 import { Typography, Grid } from '@material-ui/core'
@@ -36,8 +36,8 @@ const Artists = () => {
             <Grid container spacing={4} className={classes.root}>
               
                 {artistList.map(artist => (
-                  <Grid item xs={12} sm={6}>
-                    <Artist key={artist.artist.artist_id} artist={artist.artist} />
+                  <Grid key={artist.artist.artist_id} item xs={12} md={6}>
+                    <Artist artist={artist.artist} />
                   </Grid>
                 ))}
             </Grid>
