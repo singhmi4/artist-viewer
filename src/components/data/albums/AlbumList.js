@@ -3,23 +3,31 @@ import React, { useState, useEffect } from 'react'
 // Axios Import
 import axios from 'axios'
 
+// React Router Dom
+import { useHistory } from 'react-router-dom'
+
 // Components
 import Album from './Album'
 import Spinner from '../../layout/Spinner'
 
 // Material UI Components
-import { Typography, Grid } from '@material-ui/core'
+import { Typography, Grid, Button } from '@material-ui/core'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import { makeStyles } from '@material-ui/core/styles'
 
 // Material UI Styling
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(2)
+  },
+  title: {
+    marginTop: theme.spacing(1)
   }
 }))
 
 const AlbumList = ({ artist_id }) => {
   const classes = useStyles()
+  const history = useHistory()
   const [albumList, setAlbumList] = useState([])
 
   useEffect(() => {
@@ -43,7 +51,17 @@ const AlbumList = ({ artist_id }) => {
             </Grid>
         </Grid>
         :  <> 
-            <Typography variant="h5" align="center">{albumList[0].album.artist_name} - Discography</Typography>
+            <Button 
+              className={classes.goback}  
+              onClick={() => {
+                history.goBack();
+              }} 
+              variant="contained" 
+              color="primary" 
+              >
+                <ChevronLeftIcon /> Go Back
+            </Button>
+            <Typography className={classes.title} variant="h5" align="center">{albumList[0].album.artist_name} - Discography</Typography>
             <Grid container spacing={4} className={classes.root}>
               
                 {albumList.map(album => (
