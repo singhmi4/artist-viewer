@@ -30,7 +30,7 @@ const Artist = (props) => {
         <Typography variant="h5">{artist.artist_name}</Typography>
       </CardContent>
       <CardActions>
-        <Button component={Link} to={`albums/${artist.artist_id}`} variant="contained" color="primary" fullWidth>
+        <Button component={Link} to={`albums/${artist.artist_id}`} variant="contained" color="primary" fullWidth disableElevation>
             <ChevronRightIcon/> View Albums
           </Button>
       </CardActions>
