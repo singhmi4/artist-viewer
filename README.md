@@ -1,3 +1,14 @@
+# Live Demo
+https://youthful-nightingale-621e10.netlify.app/
+
+# Instructions to Run Website Locally
+* sign up for a [MusixMatch Developers](https://developer.musixmatch.com/plans) account and copy the API key.
+* clone repo to machine
+* create a *.env* file in the root folder
+* in that *.env* file, enter an environment variable called `REACT_APP_MM_KEY` and set it equal to the API key from MusixMatch
+* enter the command `npm install` to install dependencies
+* enter the command `npm start` to start the app 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
